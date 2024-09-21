@@ -10,7 +10,7 @@ talosClusterIp="192.168.178.200" # replace
 tftpRoot="/tftp"
 tftpBaseline="$tftpRoot/baseline"
 tftpCmdlines="$tftpRoot/cmdlines"
-tftpIp=$(hostname -I | xargs)
+tftpIp=$(hostname -I | grep -Eo '([0-9]*\.){3}[0-9]*' | xargs) # trouble if ipv6 is active, so only get IPv4, see: https://danielchg.github.io/posts/dnsmasq-for-dualstack/
 apacheRoot="/var/www/html"
 talosBaselineDir="${apacheRoot}/talosBaseline"
 
