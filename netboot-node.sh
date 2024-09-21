@@ -1,9 +1,9 @@
 #! /bin/bash
 
-piSerials=("xxxxxxxxx" "xxxxxxxx") # replace with the serials from your PIs
-talosVersion="0.14.3" # use or replace
-talosClusterName="dk8s" # replace
-talosClusterIp="192.168.197.200" # replace
+piSerials=("00280603" "388b1880" "ad56bebd") # replace with the serials from your PIs
+talosVersion="1.7.6" # use or replace
+talosClusterName="pinetes" # replace
+talosClusterIp="192.168.178.200" # replace
 
 # everything below can be left as is or updated to meet your needs.
 
@@ -56,7 +56,7 @@ chmod 777 $tftpRoot
 mkdir $tftpBaseline
 
 # create boot baseline
-wget -O $tftpBaseline/RPi4_UEFI-Firmware.zip https://github.com/pftf/RPi4/releases/download/v1.32/RPi4_UEFI_Firmware_v1.32.zip
+wget -O $tftpBaseline/RPi4_UEFI-Firmware.zip https://github.com/pftf/RPi4/releases/download/v1.38/RPi4_UEFI_Firmware_v1.32.zip
 unzip $tftpBaseline/RPi4_UEFI-Firmware.zip -d $tftpBaseline
 rm $tftpBaseline/RPi4_UEFI-Firmware.zip
 rm $tftpBaseline/RPI_EFI.fd
