@@ -56,7 +56,7 @@ chmod 777 $tftpRoot
 mkdir $tftpBaseline
 
 # create boot baseline
-wget -O $tftpBaseline/RPi4_UEFI-Firmware.zip https://github.com/pftf/RPi4/releases/download/v1.38/RPi4_UEFI_Firmware_v1.32.zip
+wget -O $tftpBaseline/RPi4_UEFI-Firmware.zip https://github.com/pftf/RPi4/releases/download/v1.38/RPi4_UEFI_Firmware_v1.38.zip
 unzip $tftpBaseline/RPi4_UEFI-Firmware.zip -d $tftpBaseline
 rm $tftpBaseline/RPi4_UEFI-Firmware.zip
 rm $tftpBaseline/RPI_EFI.fd
