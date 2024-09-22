@@ -70,7 +70,6 @@ wget -O $tftpBaseline/vmlinuz-arm64 https://github.com/talos-systems/talos/relea
 cat <<EOT >> $tftpBaseline/config.txt
 arm_64bit=1
 enable_uart=1
-disable_splash=1
 disable_commandline_tags=1
 kernel=vmlinuz-arm64
 initramfs initramfs-arm64.xz followkernel
@@ -160,5 +159,5 @@ done
 # ---- TALOS WEB END ----
 
 # enable and start dnsmasq
-#sudo systemctl enable dnsmasq.service
-#sudo systemctl restart dnsmasq.service
+sudo systemctl enable dnsmasq.service
+sudo systemctl restart dnsmasq.service
