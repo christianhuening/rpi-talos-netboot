@@ -1,6 +1,7 @@
 #! /bin/bash
 
 piSerials=("00280603" "388b1880" "ad56bebd") # replace with the serials from your PIs
+piFirmwareVersion="1.38"
 talosVersion="1.7.6" # use or replace
 talosClusterName="pinetes" # replace
 talosClusterIp="192.168.178.200" # replace
@@ -56,7 +57,7 @@ chmod 777 $tftpRoot
 mkdir $tftpBaseline
 
 # create boot baseline
-wget -O $tftpBaseline/RPi4_UEFI-Firmware.zip https://github.com/pftf/RPi4/releases/download/v1.38/RPi4_UEFI_Firmware_v1.38.zip
+wget -O $tftpBaseline/RPi4_UEFI-Firmware.zip https://github.com/pftf/RPi4/releases/download/v$piFirmwareVersion/RPi4_UEFI_Firmware_v$piFirmwareVersion.zip
 unzip $tftpBaseline/RPi4_UEFI-Firmware.zip -d $tftpBaseline
 rm $tftpBaseline/RPi4_UEFI-Firmware.zip
 rm $tftpBaseline/RPI_EFI.fd
@@ -68,11 +69,9 @@ wget -O $tftpBaseline/vmlinuz-arm64 https://github.com/talos-systems/talos/relea
 # configure the pi boot to use the Talos kernel and initrd boot
 cat <<EOT >> $tftpBaseline/config.txt
 arm_64bit=1
-arm_boost=1
 enable_uart=1
-enable_gic=1
+disable_splash=1
 disable_commandline_tags=1
-disable_overscan=1
 kernel=vmlinuz-arm64
 initramfs initramfs-arm64.xz followkernel
 EOT
@@ -95,7 +94,7 @@ for i in ${!piSerials[@]}; do
 
 # create the talos node specific cmdline.txt (i.e. kernel params)
 cat <<EOT >> $tftpCmdlines/${piSerials[$i]}.txt
-talos.config=http://$tftpIp/${piSerials[$i]}/$configName talos.platform=metal talos.board=rpi_4 panic=0 console=serial0,115200 init_on_alloc=1 slab_nomerge pti=on
+talos.config=http://$tftpIp/${piSerials[$i]}/$configName talos.platform=metal talos.board=rpi_4 panic=0 console=serial0,115200 init_on_alloc=1 init_on_free=1 slab_nomerge pti=on
 EOT
 
     ln -s $tftpCmdlines/${piSerials[$i]}.txt $tftpRoot/${piSerials[$i]}/cmdline.txt
