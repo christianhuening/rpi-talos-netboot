@@ -41,6 +41,7 @@ rm /etc/dnsmasq.conf
 
 cat <<EOT >> /etc/dnsmasq.conf
 interface=eth0
+no-dhcpv6-interface=eth0
 no-hosts
 dhcp-range=$tftpIp,proxy
 log-dhcp
