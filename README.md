@@ -1,3 +1,8 @@
+# notes
+nimm tftp-hpa oder atftp
+
+
+
 # 30 Minutes to Kubernetes
 
 [Talos](https://www.talos.dev) is a container optimized Linux distro; a reimagining of Linux for distributed systems such as Kubernetes (k8s). Designed to be as minimal as possible while still maintaining practicality. For these reasons, Talos has a number of features unique to it:
