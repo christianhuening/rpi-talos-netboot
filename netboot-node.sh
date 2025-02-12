@@ -1,8 +1,8 @@
 #! /bin/bash
 
 piSerials=("00280603" "388b1880" "ad56bebd") # replace with the serials from your PIs
-piFirmwareVersion="1.38"
-talosVersion="1.8.0" # use or replace
+piFirmwareVersion="1.40"
+talosVersion="1.9.3" # use or replace
 talosClusterName="pinetes" # replace
 talosClusterIp="192.168.178.200" # replace
 
