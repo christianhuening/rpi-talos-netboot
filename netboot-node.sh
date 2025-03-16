@@ -1,4 +1,7 @@
-#! /bin/bash
+#!/bin/bash
+
+set -o pipefail
+set -e
 
 piSerials=("00280603" "388b1880" "ad56bebd") # replace with the serials from your PIs
 piFirmwareVersion="1.40"
@@ -44,6 +47,7 @@ interface=eth0
 no-hosts
 dhcp-range=$tftpIp,proxy
 log-dhcp
+log-queries
 enable-tftp
 tftp-root=$tftpRoot
 pxe-service=0,"Raspberry Pi Boot"
