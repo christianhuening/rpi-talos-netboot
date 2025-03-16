@@ -1,8 +1,5 @@
 #!/bin/bash
 
-set -o pipefail
-set -e
-
 piSerials=("00280603" "388b1880" "ad56bebd") # replace with the serials from your PIs
 piFirmwareVersion="1.40"
 talosVersion="1.9.3" # use or replace
@@ -22,7 +19,7 @@ talosBaselineDir="${apacheRoot}/talosBaseline"
 apt update && apt upgrade -y
 
 # install required apps
-apt install dnsmasq apache2 -y
+apt install dnsmasq apache2 git unzip -y
 
 # determine number of controlplanes and workers
 numberOfNodes=${#piSerials[@]}
@@ -40,6 +37,7 @@ let z=numberOfControlPlanes-1 #zero based array
 
 # configure dnsmasq
 
+systemctl stop dnsmasq.service
 rm /etc/dnsmasq.conf
 
 cat <<EOT >> /etc/dnsmasq.conf
