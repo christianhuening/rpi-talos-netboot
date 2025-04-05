@@ -1,8 +1,6 @@
 # notes
 nimm tftp-hpa oder atftp
 
-
-
 # 30 Minutes to Kubernetes
 
 [Talos](https://www.talos.dev) is a container optimized Linux distro; a reimagining of Linux for distributed systems such as Kubernetes (k8s). Designed to be as minimal as possible while still maintaining practicality. For these reasons, Talos has a number of features unique to it:
@@ -53,6 +51,7 @@ It is highly recommended to use a USB based NVMe drive on the Netboot node. SD c
 |[Enable SSH](https://www.raspberrypi.com/documentation/computers/remote-access.html#ssh) on that device| ```sudo touch /boot/ssh```|
 |Boot up the Pi and SSH into it|   |
 |Install git|```sudo apt install git```|
+|Install unzip|```sudo apt install unzip```|
 |Clone the repo|```git clone https://github.com/geekdojo-ofc/rpi-talos-netboot.git```|
 |CD to the directory|```cd rpi-talos-netboot```|
 |Alter the variables at the top to your needs including adding all the serial numbers from the Talos nodes.|```nano netboot-node.sh```|

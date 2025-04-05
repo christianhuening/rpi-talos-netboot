@@ -2,7 +2,7 @@
 
 piSerials=("00280603" "388b1880" "ad56bebd") # replace with the serials from your PIs
 piFirmwareVersion="1.40"
-talosVersion="1.9.3" # use or replace
+talosVersion="1.9.5" # use or replace
 talosClusterName="pinetes" # replace
 talosClusterIp="192.168.178.200" # replace
 
