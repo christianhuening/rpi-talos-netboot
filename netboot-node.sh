@@ -1,10 +1,10 @@
 #!/bin/bash
 
 piSerials=("00280603" "388b1880" "ad56bebd") # replace with the serials from your PIs
-piFirmwareVersion="1.40"
+piFirmwareVersion="1.41"
 talosVersion="1.9.5" # use or replace
 talosClusterName="pinetes" # replace
-talosClusterIp="192.168.178.200" # replace
+talosClusterIp="192.168.178.230" # replace
 
 # everything below can be left as is or updated to meet your needs.
 
@@ -44,9 +44,13 @@ cat <<EOT >> /etc/dnsmasq.conf
 interface=eth0
 no-hosts
 dhcp-range=$tftpIp,proxy
+dhcp-option=3,192.168.178.1
+dhcp-option=6,192.168.178.49
 log-dhcp
 log-queries
 enable-tftp
+tftp-no-fail
+tftp-no-blocksize
 tftp-root=$tftpRoot
 pxe-service=0,"Raspberry Pi Boot"
 EOT
