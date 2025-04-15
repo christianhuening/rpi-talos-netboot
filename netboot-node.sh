@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#set -o pipefail
+#set -e
+set -x
+
 piSerials=("00280603" "388b1880" "ad56bebd") # replace with the serials from your PIs
 piFirmwareVersion="1.41"
 talosVersion="1.9.5" # use or replace
