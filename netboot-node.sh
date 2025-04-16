@@ -79,8 +79,17 @@ wget -O $tftpBaseline/vmlinuz-arm64 https://github.com/talos-systems/talos/relea
 # configure the pi boot to use the Talos kernel and initrd boot
 cat <<EOT >> $tftpBaseline/config.txt
 arm_64bit=1
+arm_boost=1
 enable_uart=1
+uart_2ndstage=1
+enable_gic=1
+armstub=RPI_EFI.fd
 disable_commandline_tags=1
+disable_overscan=1
+device_tree_address=0x1f0000
+device_tree_end=0x200000
+dtoverlay=miniuart-bt
+dtoverlay=upstream-pi4
 kernel=vmlinuz-arm64
 initramfs initramfs-arm64.xz followkernel
 EOT
