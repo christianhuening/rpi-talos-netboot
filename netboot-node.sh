@@ -79,16 +79,15 @@ wget -O $tftpBaseline/vmlinuz-arm64 https://github.com/talos-systems/talos/relea
 # configure the pi boot to use the Talos kernel and initrd boot
 cat <<EOT >> $tftpBaseline/config.txt
 arm_64bit=1
+# Some Raspberry Pi devices have a second switch-mode power supply for the SoC voltage rail. When enabled, increases the default turbo-mode clock from 1.5GHz to 1.8GHz.
 arm_boost=1
-enable_uart=1
-uart_2ndstage=1
-enable_gic=1
-armstub=RPI_EFI.fd
-disable_commandline_tags=1
-disable_overscan=1
+# enable_uart=1 (in conjunction with console=serial0,115200 in cmdline.txt) requests that the kernel creates a serial console, accessible using GPIOs 14 and 15 (pins 8 and 10 on the 40-pin header).
+enable_uart=0
 device_tree_address=0x1f0000
 device_tree_end=0x200000
-dtoverlay=miniuart-bt
+# The dtoverlay option requests the firmware to load a named Device Tree overlay - a configuration file that can enable kernel support for built-in and external hardware. For example, dtoverlay=vc4-kms-v3d loads an overlay that enables the kernel graphics driver.
+# As a special case, if called with no value - dtoverlay= - the option marks the end of a list of overlay parameters. If used before any other dtoverlay or dtparam setting, it prevents the loading of any HAT overlay.
+dtoverlay=disable-bt
 dtoverlay=upstream-pi4
 kernel=vmlinuz-arm64
 initramfs initramfs-arm64.xz followkernel
