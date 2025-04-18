@@ -88,13 +88,13 @@ arm_64bit=1
 arm_boost=1
 # enable_uart=1 (in conjunction with console=serial0,115200 in cmdline.txt) requests that the kernel creates a serial console, accessible using GPIOs 14 and 15 (pins 8 and 10 on the 40-pin header).
 enable_uart=0
-device_tree_address=0x1f0000
-device_tree_end=0x200000
-armstub=RPI_EFI.fd
+# device_tree_address=0x1f0000
+# device_tree_end=0x200000
+# armstub=RPI_EFI.fd
 # The dtoverlay option requests the firmware to load a named Device Tree overlay - a configuration file that can enable kernel support for built-in and external hardware. For example, dtoverlay=vc4-kms-v3d loads an overlay that enables the kernel graphics driver.
 # As a special case, if called with no value - dtoverlay= - the option marks the end of a list of overlay parameters. If used before any other dtoverlay or dtparam setting, it prevents the loading of any HAT overlay.
 dtoverlay=disable-bt
-dtoverlay=upstream-pi4
+dtoverlay=disable-wifi
 kernel=vmlinuz-arm64
 initramfs initramfs-arm64.xz followkernel
 EOT
