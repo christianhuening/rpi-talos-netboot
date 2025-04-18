@@ -69,6 +69,8 @@ mkdir -p $tftpRoot
 chmod 777 $tftpRoot
 mkdir $tftpBaseline
 
+# maybe use this? https://github.com/raspberrypi/firmware/tree/master/boot 
+
 # create boot baseline
 wget -O $tftpBaseline/RPi4_UEFI-Firmware.zip https://github.com/pftf/RPi4/releases/download/v$piFirmwareVersion/RPi4_UEFI_Firmware_v$piFirmwareVersion.zip
 unzip $tftpBaseline/RPi4_UEFI-Firmware.zip -d $tftpBaseline
