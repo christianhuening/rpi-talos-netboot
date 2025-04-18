@@ -50,14 +50,17 @@ no-hosts
 dhcp-range=$tftpIp,proxy
 dhcp-option=3,192.168.178.1
 dhcp-option=6,192.168.178.49
+dhcp-option=43,"Raspberry Pi Boot"
 log-dhcp
 log-queries
 enable-tftp
-tftp-no-fail
-tftp-no-blocksize
 tftp-root=$tftpRoot
 pxe-service=0,"Raspberry Pi Boot"
 EOT
+
+#tftp-no-fail
+#tftp-no-blocksize
+
 
 # configure tftp boot dir
 rm -rf $tftpRoot
