@@ -70,7 +70,7 @@ mkdir $tftpBaseline
 wget -O $tftpBaseline/RPi4_UEFI-Firmware.zip https://github.com/pftf/RPi4/releases/download/v$piFirmwareVersion/RPi4_UEFI_Firmware_v$piFirmwareVersion.zip
 unzip $tftpBaseline/RPi4_UEFI-Firmware.zip -d $tftpBaseline
 rm $tftpBaseline/RPi4_UEFI-Firmware.zip
-rm $tftpBaseline/RPI_EFI.fd
+#rm $tftpBaseline/RPI_EFI.fd
 rm $tftpBaseline/config.txt
 
 wget -O $tftpBaseline/initramfs-arm64.xz https://github.com/talos-systems/talos/releases/download/v$talosVersion/initramfs-arm64.xz
@@ -85,6 +85,7 @@ arm_boost=1
 enable_uart=0
 device_tree_address=0x1f0000
 device_tree_end=0x200000
+armstub=RPI_EFI.fd
 # The dtoverlay option requests the firmware to load a named Device Tree overlay - a configuration file that can enable kernel support for built-in and external hardware. For example, dtoverlay=vc4-kms-v3d loads an overlay that enables the kernel graphics driver.
 # As a special case, if called with no value - dtoverlay= - the option marks the end of a list of overlay parameters. If used before any other dtoverlay or dtparam setting, it prevents the loading of any HAT overlay.
 dtoverlay=disable-bt
