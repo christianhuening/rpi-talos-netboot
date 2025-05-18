@@ -105,8 +105,18 @@ armstub=RPI_EFI.fd
 #disable_overscan=1
 device_tree_address=0x1f0000
 device_tree_end=0x200000
-dtoverlay=miniuart-bt
+#dtoverlay=miniuart-bt
 dtoverlay=upstream-pi4
+# Disable Bluetooth.
+dtoverlay=disable-bt
+# Disable Wireless Lan.
+dtoverlay=disable-wifi
+# Reduce GPU memory to give more to CPU.
+gpu_mem=32
+# Enable maximum compatibility on both HDMI ports;
+# only the one closest to the power/USB-C port will work in practice.
+hdmi_safe:0=1
+hdmi_safe:1=1
 EOT
 
 # symlink a directory for each pi to the baseline

@@ -1,8 +1,10 @@
 # notes
 - nimm tftp-hpa oder atftp
 - create RPI_EFI.fd like here https://www.sidero.dev/v0.6/guides/rpi4-as-servers/#persisting-changes
-- 1.10.2 boots post rainbow
-- 1.9.6 does not
+- 1.9.6, 1.10.2 and 1.11.0-alpha3 boot post rainbow, but then get stuck in a black blank screen
+- thought it might need a disk to work, but nothing so far
+- maybe try the sidero image factory image again?
+
 
 # 30 Minutes to Kubernetes
 
