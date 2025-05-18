@@ -1,5 +1,8 @@
 # notes
-nimm tftp-hpa oder atftp
+- nimm tftp-hpa oder atftp
+- create RPI_EFI.fd like here https://www.sidero.dev/v0.6/guides/rpi4-as-servers/#persisting-changes
+- 1.10.2 boots post rainbow
+- 1.9.6 does not
 
 # 30 Minutes to Kubernetes
 
