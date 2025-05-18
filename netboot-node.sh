@@ -110,6 +110,7 @@ for i in ${!piSerials[@]}; do
     rm -rf $tftpRoot/${piSerials[$i]}
     mkdir $tftpRoot/${piSerials[$i]}
     cp -r $tftpBaseline/* $tftpRoot/${piSerials[$i]}
+    cp serials/${piSerials[$i]}/RPI_EFI.fd $tftpRoot/${piSerials[$i]}/RPI_EFI.fd
 
     configName='worker.yaml'
     if [[ $i -le $z ]]
