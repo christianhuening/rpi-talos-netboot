@@ -4,7 +4,10 @@
 - 1.9.6, 1.10.2 and 1.11.0-alpha3 boot post rainbow, but then get stuck in a black blank screen
 - thought it might need a disk to work, but nothing so far
 - maybe try the sidero image factory image again?
+- new RPI4 eeprom solves netboot tcpi issues: https://github.com/raspberrypi/rpi-eeprom/releases/tag/v2025.05.08-2712 
 
+# UART:
+- Hint: Connect Cable TX ot Board RX and vice versa
 
 # 30 Minutes to Kubernetes
 
