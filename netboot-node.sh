@@ -77,7 +77,7 @@ mkdir $tftpBaseline
 wget -O $tftpBaseline/RPi4_UEFI-Firmware.zip https://github.com/pftf/RPi4/releases/download/v$piFirmwareVersion/RPi4_UEFI_Firmware_v$piFirmwareVersion.zip
 unzip $tftpBaseline/RPi4_UEFI-Firmware.zip -d $tftpBaseline
 rm $tftpBaseline/RPi4_UEFI-Firmware.zip
-#rm $tftpBaseline/RPI_EFI.fd
+rm $tftpBaseline/RPI_EFI.fd
 rm $tftpBaseline/config.txt
 
 wget -O $tftpBaseline/initramfs-arm64.xz https://github.com/talos-systems/talos/releases/download/v$talosVersion/initramfs-arm64.xz
