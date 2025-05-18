@@ -6,7 +6,7 @@ set -x
 
 piSerials=("00280603" "388b1880" "ad56bebd") # replace with the serials from your PIs
 piFirmwareVersion="1.41"
-talosVersion="1.10.0-beta.0" # use or replace
+talosVersion="1.10.2" # use or replace
 talosClusterName="pinetes" # replace
 talosClusterIp="192.168.178.230" # replace
 
@@ -49,7 +49,7 @@ interface=eth0
 no-hosts
 dhcp-range=$tftpIp,proxy
 dhcp-option=3,192.168.178.1
-dhcp-option=6,192.168.178.49
+dhcp-option=6,192.168.178.42
 dhcp-option=43,"Raspberry Pi Boot"
 log-dhcp
 log-queries
